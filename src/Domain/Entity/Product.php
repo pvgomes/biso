@@ -38,22 +38,15 @@ class Product
     private $price;
 
     /**
-     * @var VO\Measure
-     */
-    private $measure;
-
-    /**
      * @var VO\Specification
      */
     private $specification;
 
     public function __construct(VO\Specification $specification,
                                 VO\Price $price,
-                                VO\Measure $measure,
                                 $id, $quantity)
     {
         $this->id = $id;
-        $this->measure = $measure;
         $this->price = $price;
         $this->specification = $specification;
         $this->quantity = $quantity;
