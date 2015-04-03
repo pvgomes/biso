@@ -16,14 +16,11 @@ class ProductTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $category = new Entity\Category();
-        $category->setName("Game");
         $specification = new VO\Specification('10','15','5');
-        $measure = new VO\Measure();
         $original = new VO\Money(100, new VO\Currency('BRL'));
         $special = new VO\Money(80, new VO\Currency('BRL'));
         $price = new VO\Price($original, $special);
-        $this->product = new Entity\Product($category, $specification, $price, $measure, "10", 27);
+        $this->product = new Entity\Product($specification, $price,  "10", 27);
     }
 
     /**
