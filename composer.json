@@ -1,13 +1,13 @@
 {
   "name": "pvgomes/biso",
   "description": "A Business Domain Isolation Layer",
-  "keywords": ["ddd", "isolation", "PHP"],
+  "keywords": ["ddd", "isolation", "PHP", "Domain"],
   "type": "library",
   "license": "MIT",
   "authors": [
     {
       "name": "Paulo Victor Gomes",
-      "homepage": "https://github.com/pvgomes",
+      "homepage": "https://github.com/pvgomes/biso",
       "email": "pv.gomes89@gmail.com"
     }
   ],
