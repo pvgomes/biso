@@ -89,7 +89,7 @@ class Product
      */
     public function name()
     {
-        return $this->name();
+        return $this->name;
     }
 
     /**
