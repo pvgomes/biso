@@ -64,7 +64,7 @@ class Price
 
     public function original()
     {
-        return $this->original();
+        return $this->original;
     }
 
 }
