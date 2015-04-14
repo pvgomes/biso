@@ -110,6 +110,22 @@ class Product
         $this->quantity = (int) ($this->quantity - $quantity);
     }
 
+    /**
+     * @var VO\Price
+     */
+    public function price()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @return VO\Specification
+     */
+    public function specification()
+    {
+        return $this->specification;
+    }
+
     public function isAvailable()
     {
         $isAvailable = true;
