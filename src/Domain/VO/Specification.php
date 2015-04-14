@@ -20,7 +20,7 @@ class Specification {
      */
     public function size()
     {
-        return $this->size();
+        return $this->size;
     }
 
     /**
