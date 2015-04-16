@@ -20,7 +20,7 @@ class ProductTest extends \PHPUnit_Framework_TestCase
         $original = new VO\Money(100, new VO\Currency('BRL'));
         $special = new VO\Money(80, new VO\Currency('BRL'));
         $price = new VO\Price($original, $special);
-        $this->product = new Entity\Product($specification, $price,  "10", 27);
+        $this->product = new Entity\Product($specification, $price,  "10", 10);
     }
 
     /**
@@ -48,6 +48,24 @@ class ProductTest extends \PHPUnit_Framework_TestCase
     {
         $this->product->removeQuantity(27);
         $this->assertFalse($this->product->isAvailable());
+    }
+
+    /**
+     * @test
+     */
+    public function canAddCorrectQuantity()
+    {
+        $this->product->addQuantity(1);
+        $this->assertEquals(11, $this->product->quantity());
+    }
+
+    /**
+     * @test
+     */
+    public function canNotRemoveLargerQuantity()
+    {
+        $this->product->removeQuantity(10000000000000000000000);
+        $this->assertEquals(0, $this->product->quantity());
     }
 
 }

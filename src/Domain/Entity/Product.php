@@ -100,6 +100,14 @@ class Product
         return $this->description;
     }
 
+    /**
+     * @return int
+     */
+    public function quantity()
+    {
+        return $this->quantity;
+    }
+
     public function addQuantity($quantity)
     {
         $this->quantity = (int) ($this->quantity + $quantity);
@@ -107,11 +115,15 @@ class Product
 
     public function removeQuantity($quantity)
     {
+        if ($quantity > $this->quantity) {
+            $quantity = $this->quantity;
+        }
+
         $this->quantity = (int) ($this->quantity - $quantity);
     }
 
     /**
-     * @var VO\Price
+     * @return VO\Price
      */
     public function price()
     {
