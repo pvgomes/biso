@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\VO;
+namespace Domain\Financial;
 
 class Currency
 {

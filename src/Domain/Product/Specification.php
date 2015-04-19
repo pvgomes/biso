@@ -1,6 +1,8 @@
 <?php
 
-namespace Domain\VO;
+
+namespace Domain\Product;
+
 
 class Specification {
 
@@ -39,4 +41,4 @@ class Specification {
         return $this->weight;
     }
 
-} 
+}

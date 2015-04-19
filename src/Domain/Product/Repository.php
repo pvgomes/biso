@@ -1,15 +1,14 @@
 <?php
 
-namespace Domain\Repository;
+
+namespace Domain\Product;
 
 
-interface Product {
-
+interface Repository {
     /**
      * Get Product By Id
      * @param $id
-     * @return Domain\Entity\Product | null
+     * @return \Domain\Product\Product | null
      */
     public function getById($id);
-
 }

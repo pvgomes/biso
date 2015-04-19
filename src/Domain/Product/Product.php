@@ -1,8 +1,8 @@
 <?php
 
-namespace Domain\Entity;
+namespace Domain\Product;
 
-use Domain\VO;
+use Domain\Financial;
 
 class Product
 {
@@ -33,17 +33,17 @@ class Product
     private $quantity;
 
     /**
-     * @var VO\Price
+     * @var Financial\Price
      */
     private $price;
 
     /**
-     * @var VO\Specification
+     * @var Financial\Specification
      */
     private $specification;
 
-    public function __construct(VO\Specification $specification,
-                                VO\Price $price,
+    public function __construct(Financial\Specification $specification,
+                                Financial\Price $price,
                                 $id, $quantity)
     {
         $this->id = $id;
@@ -123,7 +123,7 @@ class Product
     }
 
     /**
-     * @return VO\Price
+     * @return Financial\Price
      */
     public function price()
     {
@@ -131,7 +131,7 @@ class Product
     }
 
     /**
-     * @return VO\Specification
+     * @return Financial\Specification
      */
     public function specification()
     {

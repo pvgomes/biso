@@ -2,9 +2,8 @@
 
 namespace Tests\Factory;
 
-use SebastianBergmann\Comparator\Factory;
 
-class ProductTest extends \PHPUnit_Framework_TestCase
+class FactoryTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -23,7 +22,7 @@ class ProductTest extends \PHPUnit_Framework_TestCase
         $productStdClass->quantity = 50;
         $productStdClass->currency = "BRL";
 
-        $this->assertInstanceOf('\Domain\Entity\Product', \Domain\Factory\Product::build($productStdClass));
+        $this->assertInstanceOf('\Domain\Product\Product', \Domain\Product\Factory::build($productStdClass));
     }
 
     /**
@@ -42,7 +41,7 @@ class ProductTest extends \PHPUnit_Framework_TestCase
         $productStdClass->quantity = 50;
         $productStdClass->currency = 00000;
 
-        $this->assertInstanceOf('\Domain\Entity\Product', \Domain\Factory\Product::build($productStdClass));
+        $this->assertInstanceOf('\Domain\Product\Product', \Domain\Product\Factory::build($productStdClass));
     }
 
 }

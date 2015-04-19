@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\VO;
+namespace Tests\Financial;
 
-use Domain\VO as Domain;
+use Domain\Financial as Domain;
 
 
 class MoneyTest extends \PHPUnit_Framework_TestCase

@@ -2,24 +2,24 @@
 
 namespace Tests\Entity;
 
-use Domain\Entity;
-use Domain\VO;
+use Domain\Product;
+use Domain\Financial;
 
 
 class ProductTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var Entity\Product
+     * @var Product\Product
      */
     private $product;
 
     protected function setUp()
     {
-        $specification = new VO\Specification('10','15','5');
-        $original = new VO\Money(100, new VO\Currency('BRL'));
-        $special = new VO\Money(80, new VO\Currency('BRL'));
-        $price = new VO\Price($original, $special);
+        $specification = new Financial\Specification('10','15','5');
+        $original = new Financial\Money(100, new Financial\Currency('BRL'));
+        $special = new Financial\Money(80, new Financial\Currency('BRL'));
+        $price = new Financial\Price($original, $special);
         $this->product = new Entity\Product($specification, $price,  "10", 10);
     }
 
