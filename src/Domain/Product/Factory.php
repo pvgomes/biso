@@ -8,7 +8,7 @@ class Factory {
 
     public static function build(\stdClass $data)
     {
-        $specification = new Financial\Specification($data->size, $data->width, $data->weight);
+        $specification = new Specification($data->size, $data->width, $data->weight);
         $originalMoney = new Financial\Money($data->originalPrice, new Financial\Currency($data->currency));
         $specialMoney = new Financial\Money($data->specialPrice, new Financial\Currency($data->currency));
         $price = new Financial\Price($originalMoney, $specialMoney);

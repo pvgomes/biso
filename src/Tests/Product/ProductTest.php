@@ -16,11 +16,11 @@ class ProductTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $specification = new Financial\Specification('10','15','5');
+        $specification = new Product\Specification('10','15','5');
         $original = new Financial\Money(100, new Financial\Currency('BRL'));
         $special = new Financial\Money(80, new Financial\Currency('BRL'));
         $price = new Financial\Price($original, $special);
-        $this->product = new Entity\Product($specification, $price,  "10", 10);
+        $this->product = new Product\Product($specification, $price,  "10", 10);
     }
 
     /**

@@ -42,7 +42,7 @@ class Product
      */
     private $specification;
 
-    public function __construct(Financial\Specification $specification,
+    public function __construct(Specification $specification,
                                 Financial\Price $price,
                                 $id, $quantity)
     {
