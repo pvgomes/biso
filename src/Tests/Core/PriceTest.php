@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\VO;
+namespace Tests\Core;
 
-use Domain\VO as Domain;
+use Domain\Core;
 
 
 class PriceTest extends \PHPUnit_Framework_TestCase
@@ -13,9 +13,9 @@ class PriceTest extends \PHPUnit_Framework_TestCase
      */
     public function hasSpecialWhenIsLessValue()
     {
-        $original = new Domain\Money(100, new Domain\Currency('BRL'));
-        $special = new Domain\Money(80, new Domain\Currency('BRL'));
-        $price = new Domain\Price($original, $special);
+        $original = new Core\Money(100, new Core\Currency('BRL'));
+        $special = new Core\Money(80, new Core\Currency('BRL'));
+        $price = new Core\Price($original, $special);
         $this->assertTrue($price->hasSpecial());
     }
 
@@ -24,9 +24,9 @@ class PriceTest extends \PHPUnit_Framework_TestCase
      */
     public function notHasSpecialWhenIsBiggerValue()
     {
-        $special = new Domain\Money(100, new Domain\Currency('BRL'));
-        $original = new Domain\Money(80, new Domain\Currency('BRL'));
-        $price = new Domain\Price($original, $special);
+        $special = new Core\Money(100, new Core\Currency('BRL'));
+        $original = new Core\Money(80, new Core\Currency('BRL'));
+        $price = new Core\Price($original, $special);
         $this->assertFalse($price->hasSpecial());
     }
 

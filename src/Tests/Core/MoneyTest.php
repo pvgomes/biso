@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\VO;
+namespace Tests\Core;
 
-use Domain\VO as Domain;
+use Domain\Core;
 
 
 class MoneyTest extends \PHPUnit_Framework_TestCase
@@ -13,8 +13,8 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
      */
     public function copiedMoneyShouldRepresentSameValue()
     {
-        $aMoney = new Domain\Money(100, new Domain\Currency('USD'));
-        $copiedMoney = Domain\Money::fromMoney($aMoney);
+        $aMoney = new Core\Money(100, new Core\Currency('USD'));
+        $copiedMoney = Core\Money::fromMoney($aMoney);
         $this->assertTrue($aMoney->equals($copiedMoney));
     }
 
@@ -23,8 +23,8 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
      */
     public function originalMoneyShouldNotBeModifiedOnAddition()
     {
-        $aMoney = new Domain\Money(100, new Domain\Currency('USD'));
-        $aMoney->add(new Domain\Money(20, new Domain\Currency('USD')));
+        $aMoney = new Core\Money(100, new Core\Currency('USD'));
+        $aMoney->add(new Core\Money(20, new Core\Currency('USD')));
         $this->assertEquals(100, $aMoney->amount());
     }
 
@@ -33,8 +33,8 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
      */
     public function moneysShouldBeAdded()
     {
-        $aMoney = new Domain\Money(100, new Domain\Currency('USD'));
-        $newMoney = $aMoney->add(new Domain\Money(20, new Domain\Currency('USD')));
+        $aMoney = new Core\Money(100, new Core\Currency('USD'));
+        $newMoney = $aMoney->add(new Core\Money(20, new Core\Currency('USD')));
         $this->assertEquals(120, $newMoney->amount());
     }
 
