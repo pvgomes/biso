@@ -2,7 +2,7 @@
 
 namespace Domain\Core;
 
-interface MarketRepository extends RepositoryInterface
+interface SellerRepository extends RepositoryInterface
 {
     /**
      * Find Market By Key-Name
@@ -14,9 +14,9 @@ interface MarketRepository extends RepositoryInterface
     public function getByKeyName($keyName);
 
     /**
-     * Create an Market
-     * @param Market $market
-     * @return Market
+     * Create an Seller
+     * @param Seller $seller
+     * @return Seller
      */
-    public function add(Market $market);
+    public function add(Seller $seller);
 }

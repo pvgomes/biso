@@ -10,4 +10,11 @@ interface UserRepository extends RepositoryInterface
      * @return mixed
      */
     public function getByUserName($userName);
+
+    /**
+     * Create and User
+     * @param User $user
+     * @return User
+     */
+    public function add(User $user);
 }
