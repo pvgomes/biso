@@ -7,7 +7,7 @@ namespace Domain\Core;
  * Interface of DataMapper's. All DataMapper to be implemented should implement the Singleton pattern.
  *
  */
-interface DataMapperInterface {
+interface DataMapper {
 
     /**
      * Gets the instance of DataMapper.
