@@ -30,6 +30,11 @@ class Category
     private $nameKey;
 
     /**
+     * @var string
+     */
+    private $categorySellerId;
+
+    /**
      * @var \DateTime
      *
      */

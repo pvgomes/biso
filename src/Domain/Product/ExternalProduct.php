@@ -20,6 +20,11 @@ class ExternalProduct
     private $market;
 
     /**
+     * @var \Domain\Product\Product
+     */
+    private $product;
+
+    /**
      * @var string
      */
     private $sku;
@@ -37,12 +42,12 @@ class ExternalProduct
     /**
      * @var \DateTime
      */
-    private $created_at;
+    private $createdAt;
 
     /**
      * @var \DateTime
      */
-    private $updated_at;
+    private $updatedAt;
 
 
     /**
@@ -56,4 +61,6 @@ class ExternalProduct
             self::STATUS_INACTIVE => self::STATUS_INACTIVE,
         ];
     }
+
+
 }

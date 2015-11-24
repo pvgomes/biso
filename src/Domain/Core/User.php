@@ -8,7 +8,7 @@ class User
 
     private $id;
 
-    private $seller;
+    private $market;
 
     private $username;
 
@@ -27,6 +27,7 @@ class User
 
     public function __construct()
     {
+        $this->roles = [];
         $this->isActive = true;
     }
 
@@ -41,27 +42,19 @@ class User
     }
 
     /**
-     * Set seller.
-     *
-     * @param seller $seller
-     *
-     * @return User
+     * @return Market
      */
-    public function setSeller(Seller $seller = null)
+    public function getMarket()
     {
-        $this->seller = $seller;
-
-        return $this;
+        return $this->market;
     }
 
     /**
-     * Get seller.
-     *
-     * @return seller
+     * @param Market $market
      */
-    public function getSeller()
+    public function setMarket(Market $market)
     {
-        return $this->seller;
+        $this->market = $market;
     }
 
     /**
@@ -177,7 +170,7 @@ class User
             $this->id,
             $this->username,
             $this->password
-        ) = unserialize($serialized);
+            ) = unserialize($serialized);
     }
 
     /**
@@ -233,18 +226,33 @@ class User
     }
 
     /**
-     * @param Core\UserRole $userRole
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return User
      */
-    public function addUserRole(Core\UserRole $userRole)
+    public function setCreatedAt($createdAt)
     {
-        $this->roles[] = $userRole;
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 
     /**
-     * @param Core\UserRole $userRole
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return User
      */
-    public function removeUserRole(Core\UserRole $userRole)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->roles->removeElement($userRole);
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
+
+
+
 }

@@ -19,7 +19,7 @@ interface DataMapper {
      *
      * Converts an array of infrastructure for a business object. Lean conversion converts only the basic attributes.
      *
-     * @param $dataArray array of infrastructure
+     * @param $dataArray object of infrastructure
      */
     public function assign($dataArray);
 
@@ -27,7 +27,7 @@ interface DataMapper {
      *
      * Converts an array of infrastructure for a business object. Complete conversion, converts all attributes of the class
      *
-     * @param $dataArray array of infrastructure
+     * @param $dataArray object of infrastructure
      */
     public function assignFull($dataArray);
 
