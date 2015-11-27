@@ -5,61 +5,130 @@ namespace Domain\Product;
 
 class ExternalProduct
 {
-    const STATUS_NEW = 'new';
-    const STATUS_ACTIVE = 'active';
-    const STATUS_INACTIVE = 'inactive';
-
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
      * @var \Domain\Core\Market
      */
-    private $market;
+    protected $market;
 
     /**
      * @var \Domain\Product\Product
      */
-    private $product;
+    protected $product;
 
     /**
      * @var string
      */
-    private $sku;
+    protected $sku;
 
     /**
      * @var string
      */
-    private $json;
+    protected $json;
 
     /**
      * @var string
      */
-    private $status;
+    protected $status;
 
     /**
-     * @var \DateTime
+     * @return int
      */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    private $updatedAt;
-
-
-    /**
-     * @return array
-     */
-    public static function listStatus()
+    public function getId()
     {
-        return [
-            self::STATUS_NEW => self::STATUS_NEW,
-            self::STATUS_ACTIVE => self::STATUS_ACTIVE,
-            self::STATUS_INACTIVE => self::STATUS_INACTIVE,
-        ];
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \Domain\Core\Market
+     */
+    public function getMarket()
+    {
+        return $this->market;
+    }
+
+    /**
+     * @param \Domain\Core\Market $market
+     */
+    public function setMarket($market)
+    {
+        $this->market = $market;
+    }
+
+    /**
+     * @return Product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param Product $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @param string $sku
+     */
+    public function setSku($sku)
+    {
+        $this->sku = $sku;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJson()
+    {
+        return $this->json;
+    }
+
+    /**
+     * @param string $json
+     */
+    public function setJson($json)
+    {
+        $this->json = $json;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 
 

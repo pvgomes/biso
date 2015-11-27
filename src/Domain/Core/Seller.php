@@ -9,22 +9,22 @@ class Seller
 
     protected $id;
 
-    private $configuration;
+    protected $configuration;
 
     protected $name;
 
-    private $keyName;
+    protected $keyName;
 
-    private $accessToken;
+    protected $accessToken;
 
-    private $createdAt;
+    protected $createdAt;
 
-    private $updatedAt;
+    protected $updatedAt;
 
-    private $productPrefix;
-    private $categoryPrefix;
+    protected $productPrefix;
+    protected $categoryPrefix;
 
-    private $specification;
+    protected $specification;
 
     /**
      * @return mixed

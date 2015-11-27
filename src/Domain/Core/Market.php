@@ -19,22 +19,15 @@ class Market
     /**
      * @var string
      */
-    private $keyName;
+    protected $keyName;
+
 
     /**
      * @var string
      */
-    private $createdAt;
+    protected $configuration;
 
-    /**
-     * @var string
-     */
-    private $updatedAt;
-
-    /**
-     * @var string
-     */
-    private $configuration;
+    protected $accessToken;
 
     /**
      * @return int
@@ -87,38 +80,6 @@ class Market
     /**
      * @return string
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param string $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param string $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    /**
-     * @return string
-     */
     public function getConfiguration()
     {
         return $this->configuration;
@@ -132,5 +93,20 @@ class Market
         $this->configuration = $configuration;
     }
 
+    /**
+     * @return String
+     */
+    public function getAccessToken()
+    {
+        return $this->accessToken;
+    }
+
+    /**
+     * @param $accessToken
+     */
+    public function setAccessToken($accessToken)
+    {
+        $this->accessToken = $accessToken;
+    }
 
 }

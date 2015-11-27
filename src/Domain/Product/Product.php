@@ -6,47 +6,47 @@ namespace Domain\Product;
 class Product
 {
 
-    private $id;
+    protected $id;
 
     /**
      * @var \Domain\Core\Seller;
      */
-    private $seller;
+    protected $seller;
 
     /**
      * @var Category;
      */
-    private $category;
+    protected $category;
 
     /**
      * @var ArrayCollection
      */
-    private $externalProducts;
+    protected $externalProducts;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $sku;
+    protected $sku;
 
     /**
      * @var int
      */
-    private $stock;
+    protected $stock;
 
     /**
      * @var \Domain\Core\Price
      */
-    private $price;
+    protected $price;
 
     /**
      * @var \Domain\Core\Price
      */
-    private $specialPrice;
+    protected $specialPrice;
 
     /**
      * @var array productAttributes
@@ -58,13 +58,13 @@ class Product
      * @var \DateTime
      *
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      *
      */
-    private $updatedAt;
+    protected $updatedAt;
 
     /**
      * @return mixed

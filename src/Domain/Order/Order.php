@@ -13,33 +13,33 @@ use Domain\Core;
 class Order
 {
 
-    private $id;
+    protected $id;
 
-    private $orderNumber;
+    protected $orderNumber;
 
-    private $marketOrderNumber;
+    protected $marketOrderNumber;
 
-    private $sellerOrderNumber;
+    protected $sellerOrderNumber;
 
-    private $seller;
+    protected $seller;
 
-    private $market;
+    protected $market;
 
-    private $items;
+    protected $items;
 
-    private $totalAmount;
+    protected $totalAmount;
 
-    private $freightAmount;
+    protected $freightAmount;
 
-    private $rawData;
+    protected $rawData;
 
-    private $createdAt;
-
-
-    private $updatedAt;
+    protected $createdAt;
 
 
-    private $dataMapper;
+    protected $updatedAt;
+
+
+    protected $dataMapper;
 
     /**
      * Constructor

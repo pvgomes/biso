@@ -9,21 +9,21 @@ class LoadProductReport
     const ERROR = 'error';
     const SUCCESS = 'success';
     
-    private $id;
+    protected $id;
 
-    private $loadProduct;
+    protected $loadProduct;
 
-    private $market;
+    protected $market;
 
-    private $sku;
+    protected $sku;
 
-    private $message;
+    protected $message;
 
-    private $type;
+    protected $type;
 
-    private $createdAt;
+    protected $createdAt;
 
-    private $updatedAt;
+    protected $updatedAt;
 
     /**
      * Get id.

@@ -12,7 +12,7 @@ class ItemStatusHistory
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var Item
@@ -20,7 +20,7 @@ class ItemStatusHistory
      * @ORM\ManyToOne(targetEntity="Item", inversedBy="itemStatusHistory")
      * @ORM\JoinColumn(name="fk_item", referencedColumnName="id")
      */
-    private $item;
+    protected $item;
 
     /**
      * @var ItemStatus
@@ -28,7 +28,7 @@ class ItemStatusHistory
      * @ORM\ManyToOne(targetEntity="ItemStatus")
      * @ORM\JoinColumn(name="fk_sales_order_item_status_market", referencedColumnName="id")
      */
-    private $statusMarket;
+    protected $statusMarket;
 
     /**
      * @var ItemStatus
@@ -36,14 +36,14 @@ class ItemStatusHistory
      * @ORM\ManyToOne(targetEntity="ItemStatus")
      * @ORM\JoinColumn(name="fk_sales_order_item_status_seller", referencedColumnName="id")
      */
-    private $statusSeller;
+    protected $statusSeller;
 
     /**
      * @var string
      *
      * @ORM\Column(name="event_name", type="string", length=255, nullable=true)
      */
-    private $eventName;
+    protected $eventName;
 
     /**
      * @var \DateTime
@@ -51,14 +51,14 @@ class ItemStatusHistory
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_at", type="datetime")
      */
-    private $createdAt;
+    protected $createdAt;
     /**
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(name="updated_at", type="datetime")
      */
-    private $updatedAt;
+    protected $updatedAt;
 
     /**
      * @return int

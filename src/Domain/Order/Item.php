@@ -6,31 +6,31 @@ class Item
 {
     Const ADDITIONALS_TRACKING = "tracking";
 
-    private $id;
+    protected $id;
 
-    private $order;
+    protected $order;
 
-    private $product;
+    protected $product;
 
-    private $total;
+    protected $total;
 
-    private $statusMarket;
+    protected $statusMarket;
 
-    private $statusSeller;
+    protected $statusSeller;
 
-    private $marketId;
+    protected $marketId;
 
-    private $stateMarket;
+    protected $stateMarket;
 
-    private $stateSeller;
+    protected $stateSeller;
 
-    private $itemStatusHistory;
+    protected $itemStatusHistory;
 
-    private $createdAt;
+    protected $createdAt;
 
-    private $updatedAt;
+    protected $updatedAt;
 
-    private $additionals;
+    protected $additionals;
 
     public function __construct()
     {

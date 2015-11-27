@@ -5,18 +5,18 @@ namespace Domain\Core;
 class UserRole
 {
 
-    private $id;
+    protected $id;
 
 
-    private $name;
+    protected $name;
 
 
-    private $description;
+    protected $description;
 
     /**
      * @var ArrayCollection
      */
-    private $users;
+    protected $users;
 
     /**
      * @var \DateTime
@@ -24,7 +24,7 @@ class UserRole
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_at", type="datetime")
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
@@ -32,12 +32,12 @@ class UserRole
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(name="updated_at", type="datetime")
      */
-    private $updatedAt;
+    protected $updatedAt;
 
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
+        $this->users = [];
     }
 
     /**

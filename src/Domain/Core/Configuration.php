@@ -24,18 +24,18 @@ class Configuration
      * @var string
      *
      */
-    private $key;
+    protected $key;
 
     /**
      * @var string
      *
      */
-    private $value;
+    protected $value;
 
     /**
      * @var Market;
      */
-    private $market;
+    protected $market;
 
     /**
      * @var bool
@@ -43,11 +43,6 @@ class Configuration
      */
     protected $status = self::STATUS_ACTIVE;
 
-    /**
-     * @var \DateTime
-     *
-     */
-    private $createdAt;
 
 
     /**
@@ -142,12 +137,5 @@ class Configuration
         $this->status = $status;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
 
 }

@@ -2,27 +2,26 @@
 
 namespace Domain\Core;
 
-
 class User
 {
 
-    private $id;
+    protected $id;
 
-    private $market;
+    protected $market;
 
-    private $username;
+    protected $username;
 
-    private $name;
+    protected $name;
 
-    private $password;
+    protected $password;
 
-    private $isActive;
+    protected $isActive;
 
-    private $createdAt;
+    protected $createdAt;
 
-    private $updatedAt;
+    protected $updatedAt;
 
-    private $roles;
+    protected $roles;
 
 
     public function __construct()
@@ -253,6 +252,12 @@ class User
         return $this;
     }
 
-
+    /**
+     * @param UserRole $userRole
+     */
+    public function addUserRole(UserRole $userRole)
+    {
+        $this->roles[] = $userRole;
+    }
 
 }
