@@ -8,7 +8,6 @@
 
 namespace Domain;
 
-
 interface Command {
 
     public function domainEntity();

@@ -2,32 +2,25 @@
 
 namespace Domain\Core;
 
-use Domain\Order\Order;
-
 class Seller
 {
-
+    /**
+     * @var string
+     */
     protected $id;
 
-    protected $configuration;
-
+    /**
+     * @var string
+     */
     protected $name;
 
+    /**
+     * @var string
+     */
     protected $keyName;
 
-    protected $accessToken;
-
-    protected $createdAt;
-
-    protected $updatedAt;
-
-    protected $productPrefix;
-    protected $categoryPrefix;
-
-    protected $specification;
-
     /**
-     * @return mixed
+     * @return string
      */
     public function getId()
     {
@@ -35,7 +28,7 @@ class Seller
     }
 
     /**
-     * @param mixed $id
+     * @param string $id
      */
     public function setId($id)
     {
@@ -43,23 +36,7 @@ class Seller
     }
 
     /**
-     * @return mixed
-     */
-    public function getConfiguration()
-    {
-        return $this->configuration;
-    }
-
-    /**
-     * @param mixed $configuration
-     */
-    public function setConfiguration($configuration)
-    {
-        $this->configuration = $configuration;
-    }
-
-    /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -67,7 +44,7 @@ class Seller
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -75,7 +52,7 @@ class Seller
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getKeyName()
     {
@@ -83,107 +60,11 @@ class Seller
     }
 
     /**
-     * @param mixed $keyName
+     * @param string $keyName
      */
     public function setKeyName($keyName)
     {
         $this->keyName = $keyName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAccessToken()
-    {
-        return $this->accessToken;
-    }
-
-    /**
-     * @param mixed $accessToken
-     */
-    public function setAccessToken($accessToken)
-    {
-        $this->accessToken = $accessToken;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param mixed $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param mixed $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProductPrefix()
-    {
-        return $this->productPrefix;
-    }
-
-    /**
-     * @param mixed $productPrefix
-     */
-    public function setProductPrefix($productPrefix)
-    {
-        $this->productPrefix = $productPrefix;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCategoryPrefix()
-    {
-        return $this->categoryPrefix;
-    }
-
-    /**
-     * @param mixed $categoryPrefix
-     */
-    public function setCategoryPrefix($categoryPrefix)
-    {
-        $this->categoryPrefix = $categoryPrefix;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSpecification()
-    {
-        return $this->specification;
-    }
-
-    /**
-     * @param mixed $specification
-     */
-    public function setSpecification($specification)
-    {
-        $this->specification = $specification;
     }
 
 }

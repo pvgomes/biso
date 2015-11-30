@@ -8,7 +8,6 @@ use Domain\Handler;
 class CreateConfigurationHandler implements Handler
 {
 
-
     /**
      * @var \Domain\Core\ConfigurationRepository
      */

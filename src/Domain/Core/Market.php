@@ -21,12 +21,9 @@ class Market
      */
     protected $keyName;
 
-
     /**
      * @var string
      */
-    protected $configuration;
-
     protected $accessToken;
 
     /**
@@ -80,33 +77,18 @@ class Market
     /**
      * @return string
      */
-    public function getConfiguration()
-    {
-        return $this->configuration;
-    }
-
-    /**
-     * @param string $configuration
-     */
-    public function setConfiguration($configuration)
-    {
-        $this->configuration = $configuration;
-    }
-
-    /**
-     * @return String
-     */
     public function getAccessToken()
     {
         return $this->accessToken;
     }
 
     /**
-     * @param $accessToken
+     * @param string $accessToken
      */
     public function setAccessToken($accessToken)
     {
         $this->accessToken = $accessToken;
     }
+
 
 }
