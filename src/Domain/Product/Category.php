@@ -9,9 +9,9 @@ class Category
     protected $id;
 
     /**
-     * @var Seller;
+     * @var Market;
      */
-    protected $seller;
+    protected $market;
 
     /**
      * @var array categoryAttributes
@@ -51,19 +51,19 @@ class Category
     }
 
     /**
-     * @return Seller
+     * @return Market
      */
-    public function getSeller()
+    public function getMarket()
     {
-        return $this->seller;
+        return $this->market;
     }
 
     /**
-     * @param Seller $seller
+     * @param Market $market
      */
-    public function setSeller($seller)
+    public function setMarket($market)
     {
-        $this->seller = $seller;
+        $this->market = $market;
     }
 
     /**

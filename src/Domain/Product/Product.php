@@ -9,9 +9,9 @@ class Product
     protected $id;
 
     /**
-     * @var \Domain\Core\Seller;
+     * @var \Domain\Core\Market;
      */
-    protected $seller;
+    protected $market;
 
     /**
      * @var Category;
@@ -19,7 +19,7 @@ class Product
     protected $category;
 
     /**
-     * @var ArrayCollection
+     * @var array
      */
     protected $externalProducts;
 
@@ -55,18 +55,6 @@ class Product
     protected $productAttributes;
 
     /**
-     * @var \DateTime
-     *
-     */
-    protected $createdAt;
-
-    /**
-     * @var \DateTime
-     *
-     */
-    protected $updatedAt;
-
-    /**
      * @return mixed
      */
     public function getId()
@@ -83,19 +71,19 @@ class Product
     }
 
     /**
-     * @return \Domain\Core\Seller
+     * @return \Domain\Core\Market
      */
-    public function getSeller()
+    public function getMarket()
     {
-        return $this->seller;
+        return $this->market;
     }
 
     /**
-     * @param \Domain\Core\Seller $seller
+     * @param \Domain\Core\Market $market
      */
-    public function setSeller($seller)
+    public function setMarket($market)
     {
-        $this->seller = $seller;
+        $this->market = $market;
     }
 
     /**
@@ -115,7 +103,7 @@ class Product
     }
 
     /**
-     * @return ArrayCollection
+     * @return array
      */
     public function getExternalProducts()
     {
@@ -123,7 +111,7 @@ class Product
     }
 
     /**
-     * @param ArrayCollection $externalProducts
+     * @param array $externalProducts
      */
     public function setExternalProducts($externalProducts)
     {
@@ -224,38 +212,6 @@ class Product
     public function setProductAttributes($productAttributes)
     {
         $this->productAttributes = $productAttributes;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
     }
 
 

@@ -11,9 +11,9 @@ class ExternalProduct
     protected $id;
 
     /**
-     * @var \Domain\Core\Market
+     * @var \Domain\Core\Seller
      */
-    protected $market;
+    protected $seller;
 
     /**
      * @var \Domain\Product\Product
@@ -52,19 +52,19 @@ class ExternalProduct
     }
 
     /**
-     * @return \Domain\Core\Market
+     * @return \Domain\Core\Seller
      */
-    public function getMarket()
+    public function getSeller()
     {
-        return $this->market;
+        return $this->seller;
     }
 
     /**
-     * @param \Domain\Core\Market $market
+     * @param \Domain\Core\Seller $seller
      */
-    public function setMarket($market)
+    public function setSeller($seller)
     {
-        $this->market = $market;
+        $this->seller = $seller;
     }
 
     /**
