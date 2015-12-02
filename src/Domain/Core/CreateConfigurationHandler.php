@@ -13,8 +13,20 @@ class CreateConfigurationHandler implements Handler
      */
     private $configurationRepository;
 
+    /**
+     * @var \Domain\Core\Market
+     */
+    private $market;
 
-    public function __construct(ConfigurationRepository $configurationRepository)
+    public function __construct(Market $market)
+    {
+        $this->market = $market;
+    }
+
+    /**
+     * @param ConfigurationRepository $configurationRepository
+     */
+    public function setConfigurationRepository($configurationRepository)
     {
         $this->configurationRepository = $configurationRepository;
     }
@@ -24,14 +36,13 @@ class CreateConfigurationHandler implements Handler
         $this->save($command);
     }
 
-
     protected function save(Command $command)
     {
+        $configuration = new Configuration();
+        $configuration->setMarket($this->market);
+        $configuration->setKey($command->key);
+        $configuration->setValue($command->value);
         $configuration = $command->domainEntity();
-        if (!$configuration instanceof Configuration) {
-            throw new \DomainException("Invalid Configuration");
-        }
-
         $this->configurationRepository->add($configuration);
     }
 } 

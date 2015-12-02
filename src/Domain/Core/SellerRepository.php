@@ -11,7 +11,9 @@ interface SellerRepository extends RepositoryInterface
      *
      * @return Market
      */
-    public function getByKeyName($keyName);
+    public function byKeyName($keyName);
+
+    public function byKeyNameAndToken($keyName, $token);
 
     /**
      * Create an Seller

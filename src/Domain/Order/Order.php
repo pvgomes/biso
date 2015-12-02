@@ -4,12 +4,6 @@ namespace Domain\Order;
 
 use Domain\Core;
 
-
-
-/**
- * @ORM\Table(name="sales_order")
- * @ORM\Entity(repositoryClass="AppBundle\Infrastructure\Order\OrderRepository")
- */
 class Order
 {
 
@@ -21,43 +15,26 @@ class Order
 
     protected $sellerOrderNumber;
 
-    protected $seller;
-
-    protected $market;
-
-    protected $items;
-
     protected $totalAmount;
 
     protected $freightAmount;
 
     protected $rawData;
 
-    protected $createdAt;
-
-
-    protected $updatedAt;
-
-
-    protected $dataMapper;
-
     /**
-     * Constructor
+     * @var \Domain\Core\Market
      */
-    public function __construct()
-    {
-        $this->items = new ArrayCollection();
-    }
-
-    public function __call($name, $arguments = [])
-    {
-        return $this->getDataMapper()->$name();
-    }
+    protected $market;
 
     /**
-     * Get id
-     *
-     * @return integer
+     * @var \Domain\Core\Seller
+     */
+    protected $seller;
+
+    protected $items;
+
+    /**
+     * @return mixed
      */
     public function getId()
     {
@@ -65,9 +42,15 @@ class Order
     }
 
     /**
-     * Get orderNumber
-     *
-     * @return string
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
      */
     public function getOrderNumber()
     {
@@ -75,23 +58,15 @@ class Order
     }
 
     /**
-     * Set marketOrderNumber
-     *
-     * @param string $marketOrderNumber
-     *
-     * @return Order
+     * @param mixed $orderNumber
      */
-    public function setMarketOrderNumber($marketOrderNumber)
+    public function setOrderNumber($orderNumber)
     {
-        $this->marketOrderNumber = $marketOrderNumber;
-
-        return $this;
+        $this->orderNumber = $orderNumber;
     }
 
     /**
-     * Get marketOrderNumber
-     *
-     * @return string
+     * @return mixed
      */
     public function getMarketOrderNumber()
     {
@@ -99,7 +74,15 @@ class Order
     }
 
     /**
-     * @return string
+     * @param mixed $marketOrderNumber
+     */
+    public function setMarketOrderNumber($marketOrderNumber)
+    {
+        $this->marketOrderNumber = $marketOrderNumber;
+    }
+
+    /**
+     * @return mixed
      */
     public function getSellerOrderNumber()
     {
@@ -107,59 +90,62 @@ class Order
     }
 
     /**
-     * @param string $sellerOrderNumber
-     *
-     * @return Order
+     * @param mixed $sellerOrderNumber
      */
     public function setSellerOrderNumber($sellerOrderNumber)
     {
         $this->sellerOrderNumber = $sellerOrderNumber;
-
-        return $this;
     }
 
-
     /**
-     * Set Seller
-     *
-     * @param Core\Seller $seller
-     *
-     * @return Order
+     * @return mixed
      */
-    public function setSeller(Core\Seller $seller = null)
+    public function getTotalAmount()
     {
-        $this->seller = $seller;
-
-        return $this;
+        return $this->totalAmount;
     }
 
     /**
-     * Get Seller
-     *
-     * @return Core\Seller
+     * @param mixed $totalAmount
      */
-    public function getSeller()
+    public function setTotalAmount($totalAmount)
     {
-        return $this->seller;
+        $this->totalAmount = $totalAmount;
     }
 
     /**
-     * Set Market
-     *
-     * @param Core\Market $market
-     *
-     * @return Order
+     * @return mixed
      */
-    public function setMarket(Core\Market $market = null)
+    public function getFreightAmount()
     {
-        $this->market = $market;
-
-        return $this;
+        return $this->freightAmount;
     }
 
     /**
-     * Get Market
-     *
+     * @param mixed $freightAmount
+     */
+    public function setFreightAmount($freightAmount)
+    {
+        $this->freightAmount = $freightAmount;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRawData()
+    {
+        return $this->rawData;
+    }
+
+    /**
+     * @param mixed $rawData
+     */
+    public function setRawData($rawData)
+    {
+        $this->rawData = $rawData;
+    }
+
+    /**
      * @return Core\Market
      */
     public function getMarket()
@@ -168,125 +154,37 @@ class Order
     }
 
     /**
-     * Add Item
-     *
-     * @param Item $item
-     * @return Order
+     * @param Core\Market $market
      */
-    public function addItem(Item $item)
+    public function setMarket($market)
     {
-        $this->items[] = $item;
-
-        return $this;
+        $this->market = $market;
     }
 
     /**
-     * Remove Item
-     *
-     * @param Item $item
+     * @return Core\Seller
      */
-    public function removeItem(Item $item)
+    public function getSeller()
     {
-        $this->items->removeElement($item);
+        return $this->seller;
     }
 
     /**
-     * Get items
-     *
-     * @return ArrayCollection
+     * @param Core\Seller $seller
+     */
+    public function setSeller($seller)
+    {
+        $this->seller = $seller;
+    }
+
+    /**
+     * @return mixed
      */
     public function getItems()
     {
         return $this->items;
     }
 
-    /**
-     * Set totalAmount
-     *
-     * @param float $totalAmount
-     *
-     * @return Order
-     */
-    public function setTotalAmount($totalAmount)
-    {
-        $this->totalAmount = $totalAmount;
-
-        return $this;
-    }
-
-    /**
-     * Get totalAmount
-     *
-     * @return float
-     */
-    public function getTotalAmount()
-    {
-        return $this->totalAmount;
-    }
-
-    /**
-     * @return float
-     */
-    public function getFreightAmount()
-    {
-        return $this->freightAmount;
-    }
-
-    /**
-     * @param float $freightAmount
-     *
-     * @return Order
-     */
-    public function setFreightAmount($freightAmount)
-    {
-        $this->freightAmount = $freightAmount;
-
-        return $this;
-    }
-
-    /**
-     * Set rawData
-     *
-     * @param string $rawData
-     *
-     * @return Order
-     */
-    public function setRawData($rawData)
-    {
-        $this->rawData = $rawData;
-
-        return $this;
-    }
-
-    /**
-     * Get rawData
-     *
-     * @return string
-     */
-    public function getRawData()
-    {
-        return $this->rawData;
-    }
-
-    public function getDataMapper($marketKey = null)
-    {
-        if (is_null($this->dataMapper)) {
-            $marketKeyName = is_null($marketKey)
-                ? $this->getMarket()->getKeyName()
-                : $marketKey;
-            $dataMapperClass = 'AppBundle\Infrastructure\Order\Market\\'
-                . ucfirst($marketKeyName) . 'DataMapper';
-
-            if (!class_exists($dataMapperClass)) {
-                //@todo: implement log
-                throw new \Exception("Data Mapper not implemented for $marketKeyName market");
-            }
-
-            $this->dataMapper = new $dataMapperClass($this);
-        }
-
-        return $this->dataMapper;
-    }
 
     /**
      * @param int $orderId
@@ -298,9 +196,9 @@ class Order
             throw new \Exception('OrderId must be a integer: '. $orderId);
         }
 
-        $sellerKey = $this->getSeller()->getKeyName();
-        if (! $sellerKey) {
-            throw new \Exception('Undefined Seller Key');
+        $ventureKey = $this->getMarket()->getKeyName();
+        if (! $ventureKey) {
+            throw new \Exception('Undefined Market Key');
         }
 
         $number = $orderId;
@@ -316,145 +214,14 @@ class Order
             $number = floor(($number - $remainder) / $length);
         }
 
-        $sellerPrefix = strtoupper(substr(
-                $this->getSeller()->getKeyName(), 0, 3)
+        $venturePrefix = strtoupper(substr(
+                $this->getMarket()->getKeyName(), 0, 3)
         );
 
-        $result = $sellerPrefix.'-'.str_pad($result, 10, '0', STR_PAD_LEFT);
+        $result = $venturePrefix.'-'.str_pad($result, 10, '0', STR_PAD_LEFT);
 
         $this->orderNumber = $result;
     }
 
-    public function alreadyCanceled()
-    {
-        /** @var Item $item */
-        $item = $this->getItems()->first();
-        return $item->isCanceled();
-    }
-
-    public function marketAlreadyConfirmed()
-    {
-        $result = false;
-
-        $approvedStates = [
-            ItemStatus::STATUS_PARTNER_CONFIRM_ORDER,
-            ItemStatus::STATUS_PARTNER_SHIPPED_ORDER,
-        ];
-
-        $item = $this->getItems()->first();
-        $currentItemStatus = $item->getStatusMarket()->getKeyName();
-        if (in_array($currentItemStatus, $approvedStates)) {
-            $result = true;
-        }
-
-        return $result;
-    }
-
-
-    public function marketAlreadyCanceled()
-    {
-        $result = true;
-
-        foreach($this->getItems() as $item) {
-            $status = $item->getStatusMarket()->getKeyName();
-            if ($status != ItemStatus::STATUS_PARTNER_CANCEL_ORDER){
-                $result = false;
-            }
-        }
-        return $result;
-    }
-
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    public function updateItemsByIds(array $ids)
-    {
-        $expression = Criteria::expr();
-        $criteria = Criteria::create();
-
-        $criteria->where($expression->in('id' , $ids));
-        $matchResult = $this->items->matching($criteria);
-
-        $this->items = $matchResult;
-
-    }
-
-    public function updateItemsMarketIds(array $marketIds)
-    {
-        $expression = Criteria::expr();
-        $criteria = Criteria::create();
-
-        $criteria->where($expression->in('marketId' , $marketIds));
-        $matchResult = $this->items->matching($criteria);
-
-        $this->items = $matchResult;
-
-    }
-
-    public function getShippedItems()
-    {
-        $shippedItems = [];
-        $items = $this->getItems();
-        foreach ($items as $item) {
-            if ($item instanceof Item) {
-                if (ItemStatus::isShippedBySeller($item)) {
-                    $shippedItems[] = $item;
-                }
-            }
-        }
-
-        return $shippedItems;
-    }
-
-    public function getDeliveredItems()
-    {
-        $deliveredItems = [];
-        $items = $this->getItems();
-        foreach ($items as $item) {
-            if ($item instanceof Item) {
-                if (ItemStatus::isDeliveredBySeller($item)) {
-                    $deliveredItems[] = $item;
-                }
-            }
-        }
-
-        return $deliveredItems;
-    }
-
-    public function addTracking($tracking)
-    {
-        /** @var Item $item */
-        foreach ($this->items as $item) {
-            $item->addAdditionals(Item::ADDITIONALS_TRACKING, $tracking);
-        }
-    }
-
-    public function setOrderNumber($orderNumber)
-    {
-        $this->orderNumber = $orderNumber;
-
-        return $this;
-    }
-
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
 }
 

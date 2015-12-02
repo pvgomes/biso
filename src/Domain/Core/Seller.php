@@ -20,6 +20,11 @@ class Seller
     protected $keyName;
 
     /**
+     * @var string
+     */
+    protected $accessToken;
+
+    /**
      * @return string
      */
     public function getId()
@@ -65,6 +70,22 @@ class Seller
     public function setKeyName($keyName)
     {
         $this->keyName = $keyName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->accessToken;
+    }
+
+    /**
+     * @param string $accessToken
+     */
+    public function setAccessToken($accessToken)
+    {
+        $this->accessToken = $accessToken;
     }
 
 }

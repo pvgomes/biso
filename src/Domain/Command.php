@@ -10,7 +10,10 @@ namespace Domain;
 
 interface Command {
 
-    public function domainEntity();
+    public function repositories();
 
-    public function resourceName();
+    public function eventName();
+
+    public function eventNameError();
+
 }

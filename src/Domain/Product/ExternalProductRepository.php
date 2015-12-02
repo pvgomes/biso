@@ -12,4 +12,8 @@ interface ExternalProductRepository extends Core\RepositoryInterface
      */
     public function add(ExternalProduct $externalProduct);
 
+    public function byProductId($productId);
+
+    public function byProductAndMarket(Product $product, Core\Market $market);
+
 }

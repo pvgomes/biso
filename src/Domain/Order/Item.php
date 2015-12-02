@@ -4,7 +4,8 @@ namespace Domain\Order;
 
 class Item
 {
-    Const ADDITIONALS_TRACKING = "tracking";
+    Const ADDITIONS_TRACKING = "tracking";
+    Const ADDITIONS_NFE = "nfe";
 
     protected $id;
 
@@ -18,7 +19,7 @@ class Item
 
     protected $statusSeller;
 
-    protected $marketId;
+    protected $sellerId;
 
     protected $stateMarket;
 
@@ -26,21 +27,10 @@ class Item
 
     protected $itemStatusHistory;
 
-    protected $createdAt;
-
-    protected $updatedAt;
-
-    protected $additionals;
-
-    public function __construct()
-    {
-        $this->itemStatusHistory = [];
-    }
+    protected $additions;
 
     /**
-     * Get id
-     *
-     * @return integer
+     * @return mixed
      */
     public function getId()
     {
@@ -48,23 +38,15 @@ class Item
     }
 
     /**
-     * Set order
-     *
-     * @param Order $order
-     *
-     * @return Item
+     * @param mixed $id
      */
-    public function setOrder(Order $order = null)
+    public function setId($id)
     {
-        $this->order = $order;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get order
-     *
-     * @return Order
+     * @return mixed
      */
     public function getOrder()
     {
@@ -72,23 +54,15 @@ class Item
     }
 
     /**
-     * Set product
-     *
-     * @param \AppBundle\Infrastructure\Product\Product $product
-     *
-     * @return Item
+     * @param mixed $order
      */
-    public function setProduct($product = null)
+    public function setOrder($order)
     {
-        $this->product = $product;
-
-        return $this;
+        $this->order = $order;
     }
 
     /**
-     * Get product
-     *
-     * @return \AppBundle\Infrastructure\Product\Product
+     * @return mixed
      */
     public function getProduct()
     {
@@ -96,23 +70,15 @@ class Item
     }
 
     /**
-     * Set total
-     *
-     * @param float $total
-     *
-     * @return Item
+     * @param mixed $product
      */
-    public function setTotal($total)
+    public function setProduct($product)
     {
-        $this->total = $total;
-
-        return $this;
+        $this->product = $product;
     }
 
     /**
-     * Get total
-     *
-     * @return float
+     * @return mixed
      */
     public function getTotal()
     {
@@ -120,7 +86,15 @@ class Item
     }
 
     /**
-     * @return ItemStatus
+     * @param mixed $total
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+    }
+
+    /**
+     * @return mixed
      */
     public function getStatusMarket()
     {
@@ -128,19 +102,15 @@ class Item
     }
 
     /**
-     * @param ItemStatus $statusMarket
-     *
-     * @return Item
+     * @param mixed $statusMarket
      */
     public function setStatusMarket($statusMarket)
     {
         $this->statusMarket = $statusMarket;
-
-        return $this;
     }
 
     /**
-     * @return ItemStatus
+     * @return mixed
      */
     public function getStatusSeller()
     {
@@ -148,31 +118,39 @@ class Item
     }
 
     /**
-     * @param ItemStatus $statusSeller
-     *
-     * @return Item
+     * @param mixed $statusSeller
      */
     public function setStatusSeller($statusSeller)
     {
         $this->statusSeller = $statusSeller;
-
-        return $this;
     }
 
     /**
-     * @return String
+     * @return mixed
+     */
+    public function getSellerId()
+    {
+        return $this->sellerId;
+    }
+
+    /**
+     * @param mixed $sellerId
+     */
+    public function setSellerId($sellerId)
+    {
+        $this->sellerId = $sellerId;
+    }
+
+    /**
+     * @return mixed
      */
     public function getStateMarket()
     {
-        if (is_null($this->stateMarket)) {
-            return $this->getStatusMarket()->getKeyName();
-        }
-
         return $this->stateMarket;
     }
 
     /**
-     * @param String $stateMarket
+     * @param mixed $stateMarket
      */
     public function setStateMarket($stateMarket)
     {
@@ -180,7 +158,15 @@ class Item
     }
 
     /**
-     * @param String $stateSeller
+     * @return mixed
+     */
+    public function getStateSeller()
+    {
+        return $this->stateSeller;
+    }
+
+    /**
+     * @param mixed $stateSeller
      */
     public function setStateSeller($stateSeller)
     {
@@ -188,44 +174,7 @@ class Item
     }
 
     /**
-     * @return String
-     */
-    public function getStateSeller()
-    {
-        if (is_null($this->stateSeller)) {
-            return $this->getStatusSeller()->getKeyName();
-        }
-
-        return $this->stateSeller;
-    }
-
-    /**
-     * Add ItemStatusHistory
-     *
-     * @param ItemStatusHistory $itemStatusHistory
-     * @return Item
-     */
-    public function addItemStatusHistory(ItemStatusHistory $itemStatusHistory)
-    {
-        $this->itemStatusHistory[] = $itemStatusHistory;
-
-        return $this;
-    }
-
-    /**
-     * Remove ItemStatusHistory
-     *
-     * @param ItemStatusHistory $itemStatusHistory
-     */
-    public function removeItemStatusHistory(ItemStatusHistory $itemStatusHistory)
-    {
-        $this->itemStatusHistory->removeElement($itemStatusHistory);
-    }
-
-    /**
-     * Get ItemStatusHistory
-     *
-     * @return ArrayCollection
+     * @return mixed
      */
     public function getItemStatusHistory()
     {
@@ -233,128 +182,39 @@ class Item
     }
 
     /**
-     * Get createdAt
-     *
-     * @return \DateTime
+     * @param mixed $itemStatusHistory
      */
-    public function getCreatedAt()
+    public function setItemStatusHistory($itemStatusHistory)
     {
-        return $this->createdAt;
+        $this->itemStatusHistory = $itemStatusHistory;
     }
 
     /**
-     * Get updatedAt
-     *
-     * @return \DateTime
+     * @return mixed
      */
-    public function getUpdatedAt()
+    public function getAdditions()
     {
-        return $this->updatedAt;
+        return $this->additions;
     }
 
     /**
-     * @return string
+     * @param mixed $additions
      */
-    public function getMarketId()
+    public function setAdditions($additions)
     {
-        return $this->marketId;
+        $this->additions = $additions;
     }
 
-    /**
-     * @param string $marketId
-     */
-    public function setMarketId($marketId)
+    public function addAdditions($index, $value)
     {
-        $this->marketId = $marketId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdditionals($additionalType = null)
-    {
-        $additionals = $this->additionals;
-
-        if ($additionalType) {
-            $additionalsArray = json_decode($this->additionals, true);
-            if (array_key_exists($additionalType, $additionalsArray)) {
-                $additionals = $additionalsArray[$additionalType];
-            }
-
+        $unserializedAdditions = [];
+        $additions = $this->getAdditions();
+        if ($additions) {
+            $unserializedAdditions = json_decode($additions, true);
         }
+        $unserializedAdditions[$index] = $value;
 
-        return $additionals;
+        $this->setAdditions(json_encode($unserializedAdditions));
     }
 
-    /**
-     * @param string $additionals
-     */
-    public function setAdditionals($additionals)
-    {
-        $this->additionals = $additionals;
-    }
-
-    public function addAdditionals($index, $value)
-    {
-        $unserializedAdditionals = [];
-        $additionals = $this->getAdditionals();
-        if ($additionals) {
-            $unserializedAdditionals = json_decode($additionals, true);
-        }
-        $unserializedAdditionals[$index] = $value;
-
-        $this->setAdditionals(json_encode($unserializedAdditionals));
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCanceled()
-    {
-        return ItemStatus::isCanceledItem($this);
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCanceledByMarket()
-    {
-        return ItemStatus::isCanceledByMarket($this);
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCanceledBySeller()
-    {
-        return ItemStatus::isCanceledBySeller($this);
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Item
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Item
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
 }
