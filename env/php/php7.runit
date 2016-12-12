@@ -1,0 +1,12 @@
+#! /bin/sh
+
+exec 2>&1
+set -e
+
+umask 022
+
+PROGHOME="/"
+PROGNAME="/usr/sbin/php-fpm7"
+
+export HOME=/root
+
