@@ -1,5 +1,5 @@
 php:
-  build: ./env/php
+  image: php:7.0.22-alpine
   volumes:
       - .:/www
   tty: true
